@@ -14,12 +14,15 @@ const Application = () => {
         const r_amount = e.target.amount.value;
         const r_payment_mode = e.target.payment_mode.value;
         const r_remark = e.target.remark.value;
+        let r_id = Math.floor(Math.random() * 1000);
 
         const receipts_details = {
+            r_id,
             r_date,
             r_amount,
             r_payment_mode,
             r_remark
+
         }
 
         setReceipts(current => [...current, receipts_details])
@@ -76,7 +79,7 @@ const Application = () => {
                     <tbody>
                         {
                             receipts.map((receipt) =>
-                                <tr key={receipt.r_date}>
+                                <tr key={receipt.r_id}>
                                     <td>{receipt.r_date}</td>
                                     <td>{receipt.r_amount}</td>
                                     <td>{receipt.r_payment_mode}</td>
