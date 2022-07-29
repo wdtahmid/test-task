@@ -57,12 +57,37 @@ const Application = () => {
                             <input type="submit" value="Submit" />
                         </div>
                     </div>
-
-
                 </form>
             </div>
 
             <h1>Receipts Length: {receipts.length}</h1>
+            {
+                receipts.length > 0 &&
+
+                <table style={{ width: '600px', margin: '50px auto', textAlign: 'left' }}>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Payment Mode</th>
+                            <th>Remark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            receipts.map((receipt) =>
+                                <tr key={receipt.r_date}>
+                                    <td>{receipt.r_date}</td>
+                                    <td>{receipt.r_amount}</td>
+                                    <td>{receipt.r_payment_mode}</td>
+                                    <td>{receipt.r_remark}</td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+
+                </table>
+            }
         </>
     );
 };
